@@ -64,7 +64,7 @@
         else {
           chomp();
           clearInterval(instp);
-          audio.pause();
+          setTimeout(audio.pause, 500);
           setTimeout(function(){location="https://google.com";}, 2000);
         }
       }
