@@ -1,0 +1,95 @@
+-<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wi-Fi Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animation.css">
+    
+    <script>
+      
+    function init() {
+      setImgConsts();
+      tidepod.style.top = rick.offsetTop + rick.height/2 + 25;
+      pacman.style.top = rick.offsetTop + rick.height/2;
+    }
+      
+    function setImgConsts() {
+      var pacman = document.getElementById('pacman');
+      var tidepod = document.getElementById('tidepod');
+      var rick = document.getElementById('rick');
+    }
+      
+      
+    function mreset() {
+        document.getElementById("rick").src = "rick.png";
+    }
+    function mopen() {
+      document.getElementById("rick").src = "rickopen.png";
+    }
+    function mclose() {
+      document.getElementById("rick").src = "rickclosed.png";
+    }
+      
+    function chomp() {
+      mopen();
+      setTimeout(function(){mclose(); 
+        pacman.style.visibility="hidden";
+        tidepod.style.visibility="hidden";
+                           }, 500);
+      setTimeout(mreset, 1000);
+    }
+      
+    function startPacman() {
+      let ppos = -100;
+      let tpos = 0;
+      let tdest = rick.offsetLeft + (rick.width-50)/2
+      let incr = (rick.offsetLeft + (rick.width-50)/2)/10
+      let instp = setInterval(frame, 300);
+      
+      function frame() {
+//        console.log(pacman.offsetLeft);
+//        console.log(tidepod.offsetLeft);
+        if (tidepod.offsetLeft < tdest){ //240
+//          console.log(tpos);
+          pacman.style.left = ppos + 'px';
+          tidepod.style.left = tpos + 'px';
+          ppos += incr;
+          tpos += incr;
+        }
+        else {
+          chomp();
+          clearInterval(instp);
+        }
+      }
+    }
+      
+    </script>
+  </head>
+
+  <body onload="init();">
+    <div id="pacman"></div>
+    <div id="tidepod"></div>
+    <div class="login_box min_width">
+      <div class="top_stripe">
+        <b>Connected!</b>
+      </div>
+      <div class="inner_panel success">
+        <form action="javascript:void(0);" onsubmit="startPacman();" accept-charset="UTF-8" role="form" >
+          <fieldset>
+            
+            <img id=rick src="rick.png">
+            <p>You may now close this window.</p>
+            <div class="full_width_btn_group">
+              <input class="tertiary" name="accept" type="submit" value="Close">  
+            </div>
+            
+            <input name="auth_user" type="text" class="hidden" value="guest">
+
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
