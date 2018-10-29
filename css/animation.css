@@ -3,7 +3,7 @@ Asset descriptions for success animation.
 */
 
 #pacman {
-  background-image: url("pacman.gif");
+  background-image: url("/captivePortal/pacman.gif");
   position: absolute;
 /*  top:75%;*/
   left:-100px;
@@ -16,7 +16,7 @@ Asset descriptions for success animation.
 }
 
 #tidepod {
-  background-image: url("tidepod.gif");
+  background-image: url("/captivePortal/tidepod.gif");
   position: absolute;
 /*  top: 75%;*/
 /*  top: 24.5em;*/
