@@ -64,6 +64,8 @@
         else {
           chomp();
           clearInterval(instp);
+          audio.stop();
+          setTimeout(function(){location="https://google.com";}, 2000);
         }
       }
     }
