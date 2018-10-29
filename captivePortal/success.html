@@ -13,6 +13,8 @@
       setImgConsts();
       tidepod.style.top = rick.offsetTop + rick.height/2 + 25;
       pacman.style.top = rick.offsetTop + rick.height/2;
+      // Let the fun (horror) begin!
+      startPacman();
     }
       
     function setImgConsts() {
@@ -76,7 +78,7 @@
         <b>Connected!</b>
       </div>
       <div class="inner_panel success">
-        <form action="javascript:void(0);" onsubmit="startPacman();" accept-charset="UTF-8" role="form" >
+        <form action="javascript:void(0);" onsubmit="window.close();" accept-charset="UTF-8" role="form" >
           <fieldset>
             
             <img id=rick src="rick.png">
